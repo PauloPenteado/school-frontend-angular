@@ -12,7 +12,7 @@ export class TopBarComponent implements OnInit {
   courses = 'Cursos';
   employees = 'Funcionarios';
   plans = 'Planos';
-  search = 'Buscar';
+  search = 'Buscar  ';
 
   constructor() { }
 

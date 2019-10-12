@@ -10,7 +10,7 @@ export class TopBarComponent implements OnInit {
   title = 'Painel Administrativo';
   students = 'Alunos';
   courses = 'Cursos';
-  employees = 'Funcionarios';
+  employees = 'Equipe';
   plans = 'Planos';
   search = 'Buscar  ';
 

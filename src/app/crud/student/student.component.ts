@@ -18,10 +18,14 @@ export class StudentComponent implements OnInit {
     this.studentService.getStudents().subscribe(
       (students) => {
         this.students = students
-        console.log("students: ", students);
+        console.log('students: ', students);
       }
     );
     
+  }
+
+  deleteStudent(url: string){
+    this.studentService.deleteStudent(url);
   }
 
 }

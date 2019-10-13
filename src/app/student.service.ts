@@ -24,5 +24,16 @@ export class StudentService {
       }));
   }
 
-  
+  deleteStudent(url: string): Observable<Student>{
+    console.warn('Delete URL: ', url);
+    return this.http.delete<Student>(url);
+  }
+  /** DELETE: delete the hero from the server */
+/* deleteHero (id: number): Observable<{}> {
+  const url = `${this.heroesUrl}/${id}`; // DELETE api/heroes/42
+  return this.http.delete(url, httpOptions)
+    .pipe(
+      catchError(this.handleError('deleteHero'))
+    );
+} */
 }

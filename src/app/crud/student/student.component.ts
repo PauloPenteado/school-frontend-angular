@@ -16,9 +16,9 @@ export class StudentComponent implements OnInit {
 
   ngOnInit() {
     this.studentService.getStudents().subscribe(
-      (students) => {
-        this.students = students
-        console.log('students: ', students);
+      (data) => {
+        this.students = data
+        console.log('students: ', data);
       }
     );
     

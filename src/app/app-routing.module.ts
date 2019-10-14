@@ -6,12 +6,12 @@ import { EmployeeComponent } from './crud/employee/employee.component';
 import { PlanComponent } from './crud/plan/plan.component';
 
 const routes: Routes = [
-  {path:'student', component: StudentComponent},
-  {path:'course', component: CourseComponent},
-  {path:'employee', component: EmployeeComponent},
-  {path:'plan', component: PlanComponent},
+  {path:'students', component: StudentComponent},
+  {path:'courses', component: CourseComponent},
+  {path:'employees', component: EmployeeComponent},
+  {path:'plans', component: PlanComponent},
 
-  {path:'', redirectTo: 'student', pathMatch: 'full'},
+  {path:'', redirectTo: 'students', pathMatch: 'full'},
 ];
 
 @NgModule({

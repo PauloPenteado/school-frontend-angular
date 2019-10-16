@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http' 
+import { HttpClient, HttpErrorResponse } from '@angular/common/http' 
 import { environment } from 'src/environments/environment';
 import { Student } from './student';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-
+import { Observable, throwError } from 'rxjs';
+import { map, retry, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,19 +20,27 @@ export class StudentService {
     return this.http.get<Student[]>(this.studentUrl).pipe(
       map((result:any)=>{
          return result._embedded.students; 
-      }));
+      }),
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
+  handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      console.error('A client-side error occurred: ', error.error.message);
+    } else {
+      console.error(`A server-side error occurred. Error code [${error.status}] Error message [${error.error.message}]`);
+    
+      // return an observable with a user-facing error message
+    return throwError (
+      'Something bad happened; please try again later.');
+    };
   }
 
   deleteStudent(url: string): Observable<Student>{
     console.warn('Delete URL: ', url);
     return this.http.delete<Student>(url);
   }
-  /** DELETE: delete the hero from the server */
-/* deleteHero (id: number): Observable<{}> {
-  const url = `${this.heroesUrl}/${id}`; // DELETE api/heroes/42
-  return this.http.delete(url, httpOptions)
-    .pipe(
-      catchError(this.handleError('deleteHero'))
-    );
-} */
+
 }

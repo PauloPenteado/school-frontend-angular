@@ -11,14 +11,17 @@ import { Observable } from 'rxjs';
 export class StudentComponent implements OnInit {
 
   students: Student[];
-
+  
   constructor(private studentService : StudentService) { }
 
   ngOnInit() {
     this.studentService.getStudents().subscribe(
       (data) => {
         this.students = data
-        console.log('students: ', data);
+        console.log('students: ', data)
+      },
+      (error) => {
+        console.error('Error: ',error);
       }
     );
     

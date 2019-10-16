@@ -16,6 +16,19 @@ export class StudentService {
     private http: HttpClient
     ) { }
 
+    handleError(error: HttpErrorResponse) {
+      if (error.error instanceof ErrorEvent) {
+        console.error('A client-side error occurred: ', error.error.message);
+      } else {
+        console.error(`A server-side error occurred. Error code [${error.status}] Error message [${error.error.message}]`);
+      
+        // return an observable with a user-facing error message
+      return throwError (
+        'Something bad happened; please try again later.');
+      };
+    }
+  
+
   getStudents(): Observable<Student[]>{
     return this.http.get<Student[]>(this.studentUrl).pipe(
       map((result:any)=>{
@@ -26,21 +39,11 @@ export class StudentService {
       );
   }
 
-  handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      console.error('A client-side error occurred: ', error.error.message);
-    } else {
-      console.error(`A server-side error occurred. Error code [${error.status}] Error message [${error.error.message}]`);
-    
-      // return an observable with a user-facing error message
-    return throwError (
-      'Something bad happened; please try again later.');
-    };
-  }
-
   deleteStudent(url: string): Observable<Student>{
     console.warn('Delete URL: ', url);
-    return this.http.delete<Student>(url);
+    return this.http.delete<Student>(url).pipe(
+      catchError(this.handleError)
+    );
   }
 
 }

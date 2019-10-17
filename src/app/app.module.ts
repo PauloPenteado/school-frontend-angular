@@ -11,6 +11,7 @@ import { PlanComponent } from './crud/plan/plan.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { StudentService } from './student.service';
 import { CreateStudentComponent } from './crud/student/create-student/create-student.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { CreateStudentComponent } from './crud/student/create-student/create-stu
   imports: [
     BrowserModule,
     AppRoutingModule, 
-    HttpClientModule
+    HttpClientModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [
     StudentService

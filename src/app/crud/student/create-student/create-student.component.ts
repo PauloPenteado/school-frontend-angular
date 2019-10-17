@@ -1,4 +1,6 @@
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { StudentService } from 'src/app/student.service';
 
 @Component({
   selector: 'app-create-student',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateStudentComponent implements OnInit {
 
-  constructor() { }
+  createStudentForm: FormGroup;
+
+  constructor(
+    private studentService: StudentService,
+    private formBuilder: FormBuilder
+    ) { }
 
   ngOnInit() {
+    this.createStudentForm = this.formBuilder.group({
+      firstName: new FormControl(''),
+      lastName: new FormControl(''),
+      phoneNumber: new FormControl(''),
+      emailAddress: new FormControl(''),
+    });
   }
 
+  onSubmit(){
+    console.warn('Form Data: ',this.createStudentForm.value);
+  }
 }

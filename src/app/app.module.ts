@@ -10,6 +10,7 @@ import { StudentComponent } from './crud/student/student.component';
 import { PlanComponent } from './crud/plan/plan.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { StudentService } from './student.service';
+import { CreateStudentComponent } from './crud/student/create-student/create-student.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { StudentService } from './student.service';
     EmployeeComponent,
     StudentComponent,
     PlanComponent,
-    TopBarComponent
+    TopBarComponent,
+    CreateStudentComponent
   ],
   imports: [
     BrowserModule,

@@ -23,12 +23,10 @@ export class StudentService {
       } else {
         console.error(`A server-side error occurred. Error code [${error.status}] Error message [${error.error.message}]`);
       
-        // return an observable with a user-facing error message
       return throwError (
         'Something bad happened; please try again later.');
       };
     }
-  
 
   getStudents(): Observable<Student[]>{
     return this.http.get<Student[]>(this.studentUrl).pipe(
@@ -48,7 +46,9 @@ export class StudentService {
   }
 
   createStudent(formGroup: FormGroup): Observable<Student>{
-    return this.http.post<Student>(this.studentUrl, formGroup.value);
+    return this.http.post<Student>(this.studentUrl, formGroup.value).pipe(
+      catchError(this.handleError)
+    );
   }
 
 }

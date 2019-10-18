@@ -1,6 +1,10 @@
 <br>
 <h2>Add a new student</h2>
 <br>
+<div class="alert alert-success" role="alert" *ngIf="confirmationMsg">
+    {{confirmationMsg}}
+    <br>
+</div>
 <form [formGroup]="createStudentForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="firstName">First name</label>
@@ -19,15 +23,10 @@
         <input type="email" class="form-control" formControlName="email" id="email" placeholder="name@example.com">
     </div>
 
-    <!--TODO: Il faut que la liste ci-dessous soit charge selon les courses disponibles-->
     <div class="form-group">
         <label for="exampleFormControlSelect2">Course selection (hold Ctrl/Cmd for more than one option)</label>
         <select multiple class="form-control" id="courseSelection">
-            <option>Forro</option>
-            <option>Salsa</option>
-            <option>Samba</option>
-            <option>Bachata</option>
-            <option>Zouk</option>
+            <option *ngFor="let course of courses">{{course.name}}</option>
         </select>
     </div>
     <div class="form-group">

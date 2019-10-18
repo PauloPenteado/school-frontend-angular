@@ -1,1 +1,25 @@
-<p>course works!</p>
+<br>
+<button type="button" class="btn btn-outline-success">Add new course</button>
+<br><br>
+<div class="table-responsive" *ngIf="courses">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Course Name</th>
+        <th>Course Description</th>
+        <th>Available</th>
+        <th colspan="2">Action</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let course of courses">
+        <td>{{ course.name }}</td>
+        <td>{{ course.description }}</td>
+        <td>{{ course.available }}</td>
+        <td><button type="button" class="btn btn-outline-primary">Update</button></td>
+        <td><button type="button" class="btn btn-outline-danger">Delete</button></td>
+      </tr>
+      </tbody>
+    </table>
+    <div>

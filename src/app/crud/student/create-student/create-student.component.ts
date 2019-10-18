@@ -20,12 +20,14 @@ export class CreateStudentComponent implements OnInit {
     this.createStudentForm = this.formBuilder.group({
       firstName: new FormControl(''),
       lastName: new FormControl(''),
-      phoneNumber: new FormControl(''),
-      emailAddress: new FormControl(''),
+      phone: new FormControl(''),
+      email: new FormControl(''),
     });
   }
 
   onSubmit(){
     console.warn('Form Data: ',this.createStudentForm.value);
+    this.studentService.createStudent(this.createStudentForm).subscribe();
+    this.createStudentForm.reset();
   }
 }

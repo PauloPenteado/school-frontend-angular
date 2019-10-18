@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Student } from './student';
 import { Observable, throwError } from 'rxjs';
 import { map, retry, catchError } from 'rxjs/operators';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +45,10 @@ export class StudentService {
     return this.http.delete<Student>(url).pipe(
       catchError(this.handleError)
     );
+  }
+
+  createStudent(formGroup: FormGroup): Observable<Student>{
+    return this.http.post<Student>(this.studentUrl, formGroup.value);
   }
 
 }

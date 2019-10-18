@@ -13,6 +13,7 @@ import { StudentService } from './student.service';
 import { CreateStudentComponent } from './crud/student/create-student/create-student.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateStudentComponent } from './crud/student/update-student/update-student.component';
+import { CreateCourseComponent } from './crud/course/create-course/create-course.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { UpdateStudentComponent } from './crud/student/update-student/update-stu
     PlanComponent,
     TopBarComponent,
     CreateStudentComponent,
-    UpdateStudentComponent
+    UpdateStudentComponent,
+    CreateCourseComponent
   ],
   imports: [
     BrowserModule,

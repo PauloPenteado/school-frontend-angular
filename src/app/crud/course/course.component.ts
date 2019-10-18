@@ -22,4 +22,7 @@ export class CourseComponent implements OnInit {
       )
   }
 
+  deleteCourse(url: string){
+    this.courseService.deleteCourse(url).subscribe();
+  }
 }

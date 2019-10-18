@@ -1,5 +1,5 @@
 <br>
-<button type="button" class="btn btn-outline-success">Add new course</button>
+<button type="button" routerLink="/courses/new" class="btn btn-outline-success">Add new course</button>
 <br><br>
 <div class="table-responsive" *ngIf="courses">
     <table class="table table-striped">
@@ -18,7 +18,9 @@
         <td>{{ course.description }}</td>
         <td>{{ course.available }}</td>
         <td><button type="button" class="btn btn-outline-primary">Update</button></td>
-        <td><button type="button" class="btn btn-outline-danger">Delete</button></td>
+        <td><button type="button" class="btn btn-outline-danger"
+          (click)="deleteCourse(course._links.course.href)">Delete</button>
+        </td>
       </tr>
       </tbody>
     </table>

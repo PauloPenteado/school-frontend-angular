@@ -21,7 +21,7 @@
         <td>{{ student.phone }}</td>
         <td><button type="button" routerLink="/students/edit" class="btn btn-outline-primary">Update</button></td>
         <td><button type="button" class="btn btn-outline-danger" 
-          (click)="deleteStudent(student._links.student.href)">Delete</button></td>
+          (click)="deleteStudent(student._links.student.href, student)">Delete</button></td>
       </tr>
       </tbody>
     </table>

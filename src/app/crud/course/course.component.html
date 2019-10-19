@@ -19,7 +19,7 @@
         <td>{{ course.available }}</td>
         <td><button type="button" class="btn btn-outline-primary">Update</button></td>
         <td><button type="button" class="btn btn-outline-danger"
-          (click)="deleteCourse(course._links.course.href)">Delete</button>
+          (click)="deleteCourse(course._links.course.href, course)">Delete</button>
         </td>
       </tr>
       </tbody>

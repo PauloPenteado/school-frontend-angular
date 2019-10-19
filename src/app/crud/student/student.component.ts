@@ -27,8 +27,9 @@ export class StudentComponent implements OnInit {
     
   }
 
-  deleteStudent(url: string){
+  deleteStudent(url: string, student: Student){
     this.studentService.deleteStudent(url).subscribe();
+    this.students.splice(this.students.indexOf(student), 1);
   }
 
 }

@@ -11,7 +11,7 @@ import { CreateCourseComponent } from './crud/course/create-course/create-course
 const routes: Routes = [
   {path:'students', component: StudentComponent},
   {path:'students/new', component: CreateStudentComponent},
-  {path:'students/edit', component: UpdateStudentComponent},
+  {path:'students/edit/:studentId', component: UpdateStudentComponent},
   {path:'courses', component: CourseComponent},
   {path:'courses/new', component: CreateCourseComponent},
   {path:'employees', component: EmployeeComponent},

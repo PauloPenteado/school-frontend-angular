@@ -38,6 +38,15 @@ export class StudentService {
       );
   }
 
+  getStudent(id: string) : Observable<Student>{
+    let url = this.studentUrl +'/'+id;
+    console.log('GET URL: ', url);
+    return this.http.get<Student>(url).pipe(
+      catchError(this.handleError)
+
+    );
+  }
+
   deleteStudent(url: string): Observable<Student>{
     console.warn('Delete URL: ', url);
     return this.http.delete<Student>(url).pipe(

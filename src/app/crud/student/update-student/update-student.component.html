@@ -1,1 +1,28 @@
-<p>update-student works!</p>
+<br>
+<h2 *ngIf="student">Update student: {{student.firstName}} {{student.lastName}}</h2>
+<br>
+
+<form [formGroup]="updateStudentForm" *ngIf="student" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="firstName">First name</label>
+        <input type="text" class="form-control" formControlName="firstName" id="firstName" placeholder="">
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last name</label>
+        <input type="text" class="form-control" formControlName="lastName" id="lastName" placeholder="">
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone number</label>
+        <input type="text" class="form-control" formControlName="phone" id="phone" placeholder="">
+    </div>
+    <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" formControlName="email" id="email" placeholder="name@example.com">
+    </div>
+    
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Further remarks</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-outline-success">Confirm</button>
+</form>

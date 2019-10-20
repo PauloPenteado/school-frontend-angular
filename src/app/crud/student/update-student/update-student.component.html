@@ -2,6 +2,11 @@
 <h2 *ngIf="student">Update student: {{student.firstName}} {{student.lastName}}</h2>
 <br>
 
+<div class="alert alert-success" role="alert" *ngIf="confirmationMsg">
+        {{confirmationMsg}}
+        <br>
+    </div>
+
 <form [formGroup]="updateStudentForm" *ngIf="student" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="firstName">First name</label>

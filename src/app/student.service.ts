@@ -60,4 +60,11 @@ export class StudentService {
     );
   }
 
+  updateStudent(id: number, formGroup: FormGroup): Observable<Student>{
+    let url = this.studentUrl +'/'+id;
+    return this.http.put<Student>(url, formGroup.value).pipe(
+      catchError(this.handleError)
+    );
+  }
+
 }

@@ -12,7 +12,7 @@ import { Course } from 'src/app/course';
 export class CreateStudentComponent implements OnInit {
 
   createStudentForm: FormGroup;
-  confirmationMsg: String;
+  confirmationMsg: string;
   courses: Course[];
 
   constructor(
@@ -26,7 +26,7 @@ export class CreateStudentComponent implements OnInit {
    
     this.courseService.getCourses().subscribe(
       (data) => {
-        this.courses = data
+        this.courses = data;
         console.log('Courses: ', data)
       },
       (error) => {

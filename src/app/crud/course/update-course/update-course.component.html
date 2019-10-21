@@ -1,1 +1,16 @@
-<p>update-course works!</p>
+<br>
+<h2 *ngIf="course">Update course: {{course.name}}</h2>
+<br>
+
+<form *ngIf="course" [formGroup]="updateCourseForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Course name</label>
+            <input type="text" class="form-control" formControlName="name" id="name" placeholder="">
+        </div>
+    
+        <div class="form-group">
+            <label for="description">Course description</label>
+            <textarea class="form-control" formControlName="description" id="description" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-success">Confirm</button>
+    </form>

@@ -26,7 +26,7 @@ export class CourseService {
       console.error(`A server-side error occurred. Error code [${error.status}] Error message [${error.error.message}]`);
     
     return throwError (
-      'Something bad happened; please try again later.');
+      'Something bad happened; please try again later');
     };
   }
 
@@ -37,6 +37,13 @@ export class CourseService {
         }),
         retry(3)
         );
+    }
+
+    getCourse(id: string): Observable<Course>{
+      let url = this.courseUrl +'/'+id;
+      return this.http.get<Course>(url).pipe(
+        catchError(this.handleError)
+      );
     }
 
     createCourse(formGroup: FormGroup): Observable<Course>{

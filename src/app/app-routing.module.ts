@@ -7,6 +7,7 @@ import { PlanComponent } from './crud/plan/plan.component';
 import { CreateStudentComponent } from './crud/student/create-student/create-student.component';
 import { UpdateStudentComponent } from './crud/student/update-student/update-student.component';
 import { CreateCourseComponent } from './crud/course/create-course/create-course.component';
+import { UpdateCourseComponent } from './crud/course/update-course/update-course.component';
 
 const routes: Routes = [
   {path:'students', component: StudentComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'students/edit/:studentId', component: UpdateStudentComponent},
   {path:'courses', component: CourseComponent},
   {path:'courses/new', component: CreateCourseComponent},
+  {path:'courses/edit/:courseId', component: UpdateCourseComponent},
   {path:'employees', component: EmployeeComponent},
   {path:'plans', component: PlanComponent},
 

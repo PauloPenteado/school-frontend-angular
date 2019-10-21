@@ -17,7 +17,7 @@
         <td>{{ course.name }}</td>
         <td>{{ course.description }}</td>
         <td>{{ course.available }}</td>
-        <td><button type="button" class="btn btn-outline-primary">Update</button></td>
+        <td><button type="button" [routerLink]="['/courses/edit', course.id]"  class="btn btn-outline-primary">Update</button></td>
         <td><button type="button" class="btn btn-outline-danger"
           (click)="deleteCourse(course._links.course.href, course)">Delete</button>
         </td>

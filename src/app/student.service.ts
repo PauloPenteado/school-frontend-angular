@@ -46,7 +46,6 @@ export class StudentService {
   }
 
   deleteStudent(url: string): Observable<Student>{
-    console.warn('Delete URL: ', url);
     return this.http.delete<Student>(url).pipe(
       catchError(this.handleError)
     );

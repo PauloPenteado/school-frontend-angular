@@ -12,7 +12,7 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 export class UpdateStudentComponent implements OnInit {
 
   student: Student;
-  studentId;
+  studentId: any;
   updateStudentForm: FormGroup;
   confirmationMsg: string;
 
@@ -30,7 +30,6 @@ export class UpdateStudentComponent implements OnInit {
     this.studentService.getStudent(this.studentId).subscribe(
       (data) => {
         this.student = data;
-        console.log('student: ', data);
 
         this.updateStudentForm = this.formBuilder.group({
           firstName: new FormControl(this.student.firstName),

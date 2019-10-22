@@ -8,6 +8,8 @@ import { CreateStudentComponent } from './crud/student/create-student/create-stu
 import { UpdateStudentComponent } from './crud/student/update-student/update-student.component';
 import { CreateCourseComponent } from './crud/course/create-course/create-course.component';
 import { UpdateCourseComponent } from './crud/course/update-course/update-course.component';
+import { CreateEmployeeComponent } from './crud/employee/create-employee/create-employee.component';
+import { UpdateEmployeeComponent } from './crud/employee/update-employee/update-employee.component';
 
 const routes: Routes = [
   {path:'students', component: StudentComponent},
@@ -17,6 +19,8 @@ const routes: Routes = [
   {path:'courses/new', component: CreateCourseComponent},
   {path:'courses/edit/:courseId', component: UpdateCourseComponent},
   {path:'employees', component: EmployeeComponent},
+  {path:'employees/new', component: CreateEmployeeComponent},
+  {path:'employees/edit/:employeeId', component: UpdateEmployeeComponent},
   {path:'plans', component: PlanComponent},
 
   {path:'', redirectTo: 'students', pathMatch: 'full'},

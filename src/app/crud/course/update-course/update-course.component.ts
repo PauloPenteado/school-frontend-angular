@@ -14,6 +14,7 @@ export class UpdateCourseComponent implements OnInit {
   courseId: any;
   updateCourseForm: FormGroup;
   course: Course;
+  confirmationMsg: string;
 
   constructor(
     private route: ActivatedRoute, 
@@ -43,6 +44,7 @@ export class UpdateCourseComponent implements OnInit {
   }
 
   onSubmit(){
-    
+    this.courseService.updateCourse(this.course.id, this.updateCourseForm).subscribe();
+    this.confirmationMsg = 'Course updated: '.concat(this.updateCourseForm.get('name').value);
   }
 }

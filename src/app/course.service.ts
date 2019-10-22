@@ -52,6 +52,13 @@ export class CourseService {
       );
     }
 
+    updateCourse(id: number, formGroup: FormGroup): Observable<Course>{
+      let url = this.courseUrl + '/' + id;
+      return this.http.put<Course>(url, formGroup.value).pipe(
+        catchError(this.handleError)
+      );
+    }
+
     deleteCourse(url: string): Observable<Course>{
       return this.http.delete<Course>(url).pipe(
         catchError(this.handleError)

@@ -11,7 +11,8 @@ import { Observable } from 'rxjs';
 export class StudentComponent implements OnInit {
 
   students: Student[];
-  
+  confirmationMsg: string;
+
   constructor(private studentService : StudentService) { }
 
   ngOnInit() {
@@ -23,11 +24,15 @@ export class StudentComponent implements OnInit {
         console.error('Error: ',error);
       }
     );
-    
   }
 
   deleteStudent(url: string, student: Student){
-    this.studentService.deleteStudent(url).subscribe();
+    let name = student.firstName + ' ' + student.lastName;
+    this.studentService.deleteStudent(url).subscribe(
+      (data) =>  {
+        this.confirmationMsg = 'Student deleted: '.concat(name);
+      }
+    );
     this.students.splice(this.students.indexOf(student), 1);
   }
 

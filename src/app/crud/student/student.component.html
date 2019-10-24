@@ -1,6 +1,13 @@
 <br>
 <button type="button" routerLink="/students/new" class="btn btn-outline-success">Add new student</button>
 <br><br>
+<div *ngIf="confirmationMsg">
+    <div class="alert alert-warning" role="alert" >
+        {{confirmationMsg}}
+    </div>
+    <br>
+</div>
+
 <div class="table-responsive" *ngIf="students">
     <table class="table table-striped">
       <thead>

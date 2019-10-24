@@ -10,6 +10,7 @@ import { CourseService } from 'src/app/course.service';
 export class CourseComponent implements OnInit {
 
   courses: Course[];
+  confirmationMsg: string;
 
   constructor(
     private courseService: CourseService
@@ -23,7 +24,9 @@ export class CourseComponent implements OnInit {
   }
 
   deleteCourse(url: string, course: Course){
+    let courseName = course.name;
     this.courseService.deleteCourse(url).subscribe();
     this.courses.splice(this.courses.indexOf(course), 1);
+    this.confirmationMsg = 'Deleted course: '.concat(courseName);
   }
 }

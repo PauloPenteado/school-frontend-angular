@@ -17,6 +17,7 @@ import { CreateCourseComponent } from './crud/course/create-course/create-course
 import { UpdateCourseComponent } from './crud/course/update-course/update-course.component';
 import { CreateEmployeeComponent } from './crud/employee/create-employee/create-employee.component';
 import { UpdateEmployeeComponent } from './crud/employee/update-employee/update-employee.component';
+import { ScheduleComponent } from './crud/schedule/schedule.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { UpdateEmployeeComponent } from './crud/employee/update-employee/update-
     CreateCourseComponent,
     UpdateCourseComponent,
     CreateEmployeeComponent,
-    UpdateEmployeeComponent
+    UpdateEmployeeComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,

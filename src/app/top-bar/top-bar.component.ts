@@ -13,6 +13,7 @@ export class TopBarComponent implements OnInit {
   employees = 'Equipe';
   plans = 'Planos';
   search = 'Buscar  ';
+  schedule = 'Horario das aulas';
 
   constructor() { }
 

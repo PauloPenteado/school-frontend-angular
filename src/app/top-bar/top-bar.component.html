@@ -8,16 +8,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a [routerLink]="['students']" class="nav-link" href="#">{{students}} <span class="sr-only">(current)</span></a>
+          <a routerLink="students" class="nav-link" href="#">{{students}} <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a [routerLink]="['courses']" class="nav-link" href="#">{{courses}}</a>
+          <a routerLink="courses" class="nav-link" href="#">{{courses}}</a>
         </li>
         <li class="nav-item">
-          <a [routerLink]="['employees']" class="nav-link" href="#">{{employees}}</a>
+          <a routerLink="employees" class="nav-link" href="#">{{employees}}</a>
         </li>
         <li class="nav-item">
-          <a [routerLink]="['plans']" class="nav-link" href="#">{{plans}}</a>
+            <a routerLink="schedule" class="nav-link" href="#">{{schedule}}</a>
+          </li>        
+        <li class="nav-item">
+          <a routerLink="plans" class="nav-link" href="#">{{plans}}</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">

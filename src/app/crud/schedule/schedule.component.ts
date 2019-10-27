@@ -4,6 +4,8 @@ import { Course } from 'src/app/course';
 import { EmployeeService } from 'src/app/employee.service';
 import { CourseService } from 'src/app/course.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { ScheduleService } from 'src/app/schedule.service';
+import { Schedule } from 'src/app/schedule';
 
 @Component({
   selector: 'app-schedule',
@@ -12,6 +14,7 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 })
 export class ScheduleComponent implements OnInit {
 
+  schedules: Schedule[];
   scheduleForm: FormGroup;
   employees: Employee[];
   courses: Course[];
@@ -23,22 +26,30 @@ export class ScheduleComponent implements OnInit {
   constructor(
     private employeeService: EmployeeService,
     private courseService: CourseService,
+    private scheduleService: ScheduleService,
     private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
     this.employeeService.getEmployees().subscribe(
       (data) => {
-        this.employees = data
-        console.log('Instructors: ', this.employees);
+        this.employees = data;
+        console.log('Employees: ', this.employees);
       }
     );
 
     this.courseService.getCourses().subscribe(
     (data) => {
       this.courses = data;
-      console.log('Courses: ',this.courses);
+      console.log('Courses: ', this.courses);
     }
+    );
+
+    this.scheduleService.getSchedules().subscribe(
+      (data) => {
+        this.schedules = data;
+        console.log('Schedules: ', this.schedules);
+      }
     );
 
     this.scheduleForm = this.formBuilder.group({

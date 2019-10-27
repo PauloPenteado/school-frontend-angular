@@ -44,4 +44,32 @@
     <button type="submit" class="btn btn-success">Add</button>
 </form>
 
+<br><br>
 <!--Even if you want to add the list under the menu, il faut que le composant soit separé-->
+<div class="table-responsive" *ngIf="schedules">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Course name</th>
+                <th>Level</th>
+                <th>Instructor</th>
+                <th>Day</th>
+                <th>Hour</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let schedule of schedules">
+                <td>{{ schedule.courseId }}</td>
+                <td>{{ schedule.level }}</td>
+                <td>{{ schedule.instructorId }}</td>
+                <td>{{ schedule.day }}</td>
+                <td>{{ schedule.hour }}:{{ schedule.minutes }}</td>
+                <td><button type="button" 
+                        class="btn btn-outline-primary">Update</button></td>
+                <td><button type="button" class="btn btn-outline-danger">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div>

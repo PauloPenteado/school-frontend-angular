@@ -3,6 +3,7 @@ import { Employee } from 'src/app/employee';
 import { Course } from 'src/app/course';
 import { EmployeeService } from 'src/app/employee.service';
 import { CourseService } from 'src/app/course.service';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-schedule',
@@ -11,15 +12,18 @@ import { CourseService } from 'src/app/course.service';
 })
 export class ScheduleComponent implements OnInit {
 
+  scheduleForm: FormGroup;
   employees: Employee[];
   courses: Course[];
-  days = ['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
-  hours = [16,17,18,19,20,21,22];
-  minutes = [0,5,10,15,20,25,30,35,40,45,50,55]
+  days = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+  hours = [16, 17, 18, 19, 20, 21, 22];
+  minutes = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
+  levels = ['Débutant 1', 'Débutant 2', 'Débutant 3', 'Intermediaire 1', 'Intermediaire 2'];
 
   constructor(
     private employeeService: EmployeeService,
-    private courseService: CourseService
+    private courseService: CourseService,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
@@ -32,10 +36,22 @@ export class ScheduleComponent implements OnInit {
 
     this.courseService.getCourses().subscribe(
     (data) => {
-      this.courses = data
+      this.courses = data;
       console.log('Courses: ',this.courses);
     }
     );
+
+    this.scheduleForm = this.formBuilder.group({
+      course: new FormControl(''),
+      level: new FormControl(''),
+      instructor: new FormControl(''),
+      day: new FormControl(this.days[0]),
+      hour: new FormControl(this.hours[0]),
+      minute: new FormControl(this.minutes[0]),
+    });
   }
 
+  onSubmit() {
+    console.log('scheduleForm: ', this.scheduleForm.value);
+  }
 }

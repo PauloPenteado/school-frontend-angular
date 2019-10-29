@@ -1,51 +1,6 @@
 <br>
-<form [formGroup]="scheduleForm" (ngSubmit)="onSubmit()">
-    <div class="form-row">
-        <div class="form-group col-md-3">
-            <label for="inputState">Cours</label>
-            <select id="inputState" class="form-control" formControlName="course">
-                <option [ngValue]="null">Select ...</option>
-                <option *ngFor="let course of courses">{{course.name}}</option>
-            </select>
-        </div>
-        <div class="form-group col-md-3">
-            <label for="inputState">Niveau</label>
-            <select id="inputState" class="form-control" formControlName="level">
-                <option [ngValue]="null">Select ...</option>
-                <option *ngFor="let level of levels">{{level}}</option>
-            </select>
-        </div>
-        <div class="form-group col-md-2">
-            <label for="instructors">Professeur</label>
-            <select id="instructors" class="form-control" formControlName="instructor">
-                <option [ngValue]="null">Select ...</option>
-                <option *ngFor="let instructor of employees">{{instructor.firstName}} {{instructor.lastName}}</option>
-            </select>
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputState">Jour</label>
-            <select id="inputState" class="form-control" formControlName="day">
-                <option *ngFor="let day of days">{{day}}</option>
-            </select>
-        </div>
-        <div class="form-group col-md-1">
-            <label for="inputState">Heure</label>
-            <select id="inputState" class="form-control" formControlName="hour">
-                <option *ngFor="let hour of hours">{{hour}}</option>
-            </select>
-        </div>
-        <div class="form-group col-md-1">
-            <label for="inputState">Minute</label>
-            <select id="inputState" class="form-control" formControlName="minute">
-                <option *ngFor="let minute of minutes">{{minute}}</option>
-            </select>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-success">Add</button>
-</form>
-
+<app-create-schedule></app-create-schedule>
 <br><br>
-<!--Even if you want to add the list under the menu, il faut que le composant soit separé-->
 <div class="table-responsive" *ngIf="schedules">
     <table class="table table-striped">
         <thead>

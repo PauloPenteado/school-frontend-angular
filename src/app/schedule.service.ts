@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Schedule } from './schedule';
 import { map, retry } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { FormGroup } from '@angular/forms';
 
 
 @Injectable({
@@ -24,5 +25,9 @@ export class ScheduleService {
       }),
       retry(3)
     );
+  }
+
+  createSchedule(formGroup: FormGroup): Observable<Schedule> {
+    return this.http.post<Schedule>(this.scheduleUrl, formGroup.value).pipe();
   }
 }

@@ -4,6 +4,7 @@ import { Employee } from 'src/app/employee';
 import { Course } from 'src/app/course';
 import { EmployeeService } from 'src/app/employee.service';
 import { CourseService } from 'src/app/course.service';
+import { ScheduleService } from 'src/app/schedule.service';
 
 @Component({
   selector: 'app-create-schedule',
@@ -12,21 +13,26 @@ import { CourseService } from 'src/app/course.service';
 })
 export class CreateScheduleComponent implements OnInit {
 
-  scheduleForm: FormGroup;
+  createScheduleForm: FormGroup;
   employees: Employee[];
   courses: Course[];
   days = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
   hours = [16, 17, 18, 19, 20, 21, 22];
   minutes = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
   levels = ['Débutant 1', 'Débutant 2', 'Débutant 3', 'Intermediaire 1', 'Intermediaire 2'];
+  confirmationMsg: string;
 
   constructor(
+    private scheduleService: ScheduleService,
     private employeeService: EmployeeService,
     private courseService: CourseService,
     private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
+
+    this.confirmationMsg = '';
+
     this.employeeService.getEmployees().subscribe(
       (data) => {
         this.employees = data;
@@ -41,7 +47,7 @@ export class CreateScheduleComponent implements OnInit {
     }
     );
 
-    this.scheduleForm = this.formBuilder.group({
+    this.createScheduleForm = this.formBuilder.group({
       course: new FormControl(''),
       level: new FormControl(''),
       instructor: new FormControl(''),
@@ -52,6 +58,14 @@ export class CreateScheduleComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('scheduleForm: ', this.scheduleForm.value);
+    console.log('createScheduleForm: ', this.createScheduleForm.value);
+
+/*     let courseName = this.createScheduleForm.get('course').value;
+    let level = this.createScheduleForm.get('level').value;
+    let time = this.createScheduleForm.get('hour').value + ':' + this.createScheduleForm.get('minutes').value;
+    let dayTime = this.createScheduleForm.get('day').value +', '+time;*/
+    this.scheduleService.createSchedule(this.createScheduleForm).subscribe(); 
+   // this.confirmationMsg = 'Nouvelle classe: '+courseName+' - '+dayTime;
+    this.createScheduleForm.reset();
   }
 }

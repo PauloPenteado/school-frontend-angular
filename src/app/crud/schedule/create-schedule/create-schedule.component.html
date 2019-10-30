@@ -1,4 +1,9 @@
-<form [formGroup]="scheduleForm" (ngSubmit)="onSubmit()">
+<div class="alert alert-success" role="alert" *ngIf="confirmationMsg">
+    {{confirmationMsg}}
+    <br>
+</div>
+
+<form [formGroup]="createScheduleForm" (ngSubmit)="onSubmit()">
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="inputState">Cours</label>

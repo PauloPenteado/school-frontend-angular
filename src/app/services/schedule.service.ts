@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { Schedule } from './schedule';
+import { Schedule } from '../interfaces/schedule';
 import { map, retry } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';

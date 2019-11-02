@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable, throwError } from 'rxjs';
-import { Employee } from './employee';
+import { Employee } from '../interfaces/employee';
 import { map, retry, catchError } from 'rxjs/operators';
 import { FormGroup } from '@angular/forms';
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Student } from 'src/app/student';
-import { StudentService } from '../../student.service';
-import { Observable } from 'rxjs';
+import { Student } from 'src/app/interfaces/student';
+import { StudentService } from '../../services/student.service';
 
 @Component({
   selector: 'app-student',
@@ -27,7 +26,7 @@ export class StudentComponent implements OnInit {
   }
 
   deleteStudent(url: string, student: Student){
-    let name = student.firstName + ' ' + student.lastName;
+    const name = student.firstName + ' ' + student.lastName;
     this.studentService.deleteStudent(url).subscribe(
       (data) =>  {
         this.confirmationMsg = 'Student deleted: '.concat(name);

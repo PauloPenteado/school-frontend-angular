@@ -9,7 +9,7 @@ import { EmployeeComponent } from './crud/employee/employee.component';
 import { StudentComponent } from './crud/student/student.component';
 import { PlanComponent } from './crud/plan/plan.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { StudentService } from './student.service';
+import { StudentService } from './services/student.service';
 import { CreateStudentComponent } from './crud/student/create-student/create-student.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateStudentComponent } from './crud/student/update-student/update-student.component';

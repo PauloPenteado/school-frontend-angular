@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
-import { Employee } from 'src/app/employee';
-import { Course } from 'src/app/course';
-import { EmployeeService } from 'src/app/employee.service';
-import { CourseService } from 'src/app/course.service';
-import { ScheduleService } from 'src/app/schedule.service';
+import { Employee } from 'src/app/interfaces/employee';
+import { Course } from 'src/app/interfaces/course';
+import { EmployeeService } from 'src/app/services/employee.service';
+import { CourseService } from 'src/app/services/course.service';
+import { ScheduleService } from 'src/app/services/schedule.service';
 
 @Component({
   selector: 'app-create-schedule',

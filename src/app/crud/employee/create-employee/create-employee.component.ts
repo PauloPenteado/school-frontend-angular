@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from 'src/app/employee.service';
-import { CourseService } from 'src/app/course.service';
+import { EmployeeService } from 'src/app/services/employee.service';
+import { CourseService } from 'src/app/services/course.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { Course } from 'src/app/course';
+import { Course } from 'src/app/interfaces/course';
 
 @Component({
   selector: 'app-create-employee',

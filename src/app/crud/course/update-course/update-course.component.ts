@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { Course } from 'src/app/course';
-import { CourseService } from 'src/app/course.service';
+import { Course } from 'src/app/interfaces/course';
+import { CourseService } from 'src/app/services/course.service';
 
 @Component({
   selector: 'app-update-course',

@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from 'src/app/employee';
-import { EmployeeService } from 'src/app/employee.service';
-import { CourseService } from 'src/app/course.service';
-import { Course } from 'src/app/course';
-import { FormBuilder } from '@angular/forms';
+import { Employee } from 'src/app/interfaces/employee';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
   selector: 'app-employee',
@@ -28,7 +25,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   deleteEmployee(url: string, employee: Employee){
-    let name = employee.firstName + ' '+ employee.lastName;
+    const name = employee.firstName + ' '+ employee.lastName;
     this.employeeService.deleteEmployee(url).subscribe();
     this.employees.splice(this.employees.indexOf(employee), 1);
     this.confirmationMsg = 'Deleted team member: '.concat(name);

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { StudentService } from 'src/app/student.service';
-import { Student } from 'src/app/student';
+import { StudentService } from 'src/app/services/student.service';
+import { Student } from 'src/app/interfaces/student';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({

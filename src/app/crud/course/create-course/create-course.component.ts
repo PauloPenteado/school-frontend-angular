@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { CourseService } from 'src/app/course.service';
+import { CourseService } from 'src/app/services/course.service';
 
 @Component({
   selector: 'app-create-course',

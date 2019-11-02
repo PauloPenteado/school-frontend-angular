@@ -1,8 +1,8 @@
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { StudentService } from 'src/app/student.service';
-import { CourseService } from 'src/app/course.service';
-import { Course } from 'src/app/course';
+import { StudentService } from 'src/app/services/student.service';
+import { CourseService } from 'src/app/services/course.service';
+import { Course } from 'src/app/interfaces/course';
 
 @Component({
   selector: 'app-create-student',

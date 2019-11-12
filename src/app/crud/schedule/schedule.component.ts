@@ -21,6 +21,7 @@ export class ScheduleComponent implements OnInit {
     this.scheduleService.getSchedules().subscribe(
       (data) => {
         this.schedules = data;
+        console.log('Schedule list: ', this.schedules);
       }
     );
 

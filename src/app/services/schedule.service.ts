@@ -13,13 +13,14 @@ import { FormGroup } from '@angular/forms';
 export class ScheduleService {
 
   scheduleUrl = environment.REST_API_URL + 'schedules';
+  projectionUrlSuffix = 'projection=scheduleDTO';
 
   constructor(
     private http: HttpClient
   ) { }
 
   getSchedules(): Observable<Schedule[]>{
-    return this.http.get<Schedule[]>(this.scheduleUrl).pipe(
+    return this.http.get<Schedule[]>(this.scheduleUrl+'?'+this.projectionUrlSuffix).pipe(
       map((result: any) => {
         return result._embedded.schedules;
       }),

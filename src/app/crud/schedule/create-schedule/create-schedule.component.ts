@@ -36,14 +36,12 @@ export class CreateScheduleComponent implements OnInit {
     this.employeeService.getEmployees().subscribe(
       (data) => {
         this.employees = data;
-        console.log('Employees: ', this.employees);
       }
     );
 
     this.courseService.getCourses().subscribe(
     (data) => {
       this.courses = data;
-      console.log('Courses: ', this.courses);
     }
     );
 
@@ -64,7 +62,7 @@ export class CreateScheduleComponent implements OnInit {
     let level = this.createScheduleForm.get('level').value;
     let time = this.createScheduleForm.get('hour').value + ':' + this.createScheduleForm.get('minutes').value;
     let dayTime = this.createScheduleForm.get('day').value +', '+time;*/
-    this.scheduleService.createSchedule(this.createScheduleForm).subscribe(); 
+   // this.scheduleService.createSchedule(this.createScheduleForm).subscribe(); 
    // this.confirmationMsg = 'Nouvelle classe: '+courseName+' - '+dayTime;
     this.createScheduleForm.reset();
   }

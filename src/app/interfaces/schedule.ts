@@ -1,7 +1,10 @@
+import { Course } from './course';
+import { Employee } from './employee';
+
 export interface Schedule {
     id: number;
-    courseId: number;
-    instructorId: number;
+    course: Course;
+    instructor: Employee;
     level: string;
     day: number;
     hour: number;

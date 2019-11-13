@@ -26,8 +26,11 @@ export class EmployeeComponent implements OnInit {
 
   deleteEmployee(url: string, employee: Employee){
     const name = employee.firstName + ' '+ employee.lastName;
-    this.employeeService.deleteEmployee(url).subscribe();
-    this.employees.splice(this.employees.indexOf(employee), 1);
-    this.confirmationMsg = 'Deleted team member: '.concat(name);
+    this.employeeService.deleteEmployee(url).subscribe(
+      (data) => {
+        this.employees.splice(this.employees.indexOf(employee), 1);
+        this.confirmationMsg = 'Deleted team member: '.concat(name);
+      }
+    );
   }
 }

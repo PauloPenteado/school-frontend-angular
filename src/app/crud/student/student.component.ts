@@ -29,10 +29,10 @@ export class StudentComponent implements OnInit {
     const name = student.firstName + ' ' + student.lastName;
     this.studentService.deleteStudent(url).subscribe(
       (data) =>  {
+        this.students.splice(this.students.indexOf(student), 1);
         this.confirmationMsg = 'Student deleted: '.concat(name);
       }
     );
-    this.students.splice(this.students.indexOf(student), 1);
   }
 
 }

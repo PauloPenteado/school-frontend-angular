@@ -28,6 +28,10 @@ export class ScheduleService {
     );
   }
 
+  deleteSchedule(url: string): Observable<Schedule> {
+    return this.http.delete<Schedule>(url).pipe();
+  }
+
   createSchedule(formGroup: FormGroup): Observable<Schedule> {
     return this.http.post<Schedule>(this.scheduleUrl, formGroup.value).pipe();
   }

@@ -27,4 +27,12 @@ export class ScheduleComponent implements OnInit {
 
   }
 
+  deleteSchedule(url: string, schedule: Schedule) {
+    this.scheduleService.deleteSchedule(url).subscribe(
+      (data) => {
+        this.schedules.splice(this.schedules.indexOf(schedule), 1);
+      }
+    )
+  }
+
 }

@@ -22,9 +22,9 @@
 
         <tbody>
             <tr *ngFor="let schedule of schedules">
-                <td>{{ schedule.course.name }}</td>
+                <td>{{ schedule.course ? (schedule.course.name) : "" }}</td>
                 <td>{{ schedule.level }}</td>
-                <td>{{ schedule.instructor.firstName }} {{ schedule.instructor.lastName }}</td>
+                <td>{{ schedule.instructor ? schedule.instructor.firstName + " " + schedule.instructor.lastName : "" }}</td>
                 <td>{{ schedule.day }}</td>
                 <td>{{ schedule.hour }}:{{ schedule.minutes }}</td>
                 <td><button type="button" class="btn btn-outline-primary">Update</button></td>

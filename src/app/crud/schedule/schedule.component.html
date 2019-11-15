@@ -1,6 +1,12 @@
 <br>
 <app-create-schedule></app-create-schedule>
-<br><br>
+<br>
+<div *ngIf="confirmationMsg">
+    <div class="alert alert-warning" role="alert">
+        {{confirmationMsg}}
+    </div>
+    <br>
+</div>
 <div class="table-responsive" *ngIf="schedules">
     <table class="table table-striped">
         <thead>
@@ -21,9 +27,9 @@
                 <td>{{ schedule.instructor.firstName }} {{ schedule.instructor.lastName }}</td>
                 <td>{{ schedule.day }}</td>
                 <td>{{ schedule.hour }}:{{ schedule.minutes }}</td>
-                <td><button type="button" 
-                        class="btn btn-outline-primary">Update</button></td>
-                <td><button type="button" class="btn btn-outline-danger">Delete</button></td>
+                <td><button type="button" class="btn btn-outline-primary">Update</button></td>
+                <td><button type="button" class="btn btn-outline-danger"
+                        (click)="deleteSchedule(schedule._links.self.href, schedule)">Delete</button></td>
             </tr>
         </tbody>
     </table>

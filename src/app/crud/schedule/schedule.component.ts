@@ -10,7 +10,7 @@ import { Schedule } from 'src/app/interfaces/schedule';
 export class ScheduleComponent implements OnInit {
 
   schedules: Schedule[];
-
+  confirmationMsg: string;
 
   constructor(
     private scheduleService: ScheduleService,
@@ -28,11 +28,15 @@ export class ScheduleComponent implements OnInit {
   }
 
   deleteSchedule(url: string, schedule: Schedule) {
+    console.log('Delete URL: ', url);
+    console.log('Schedule to be deleted: ', schedule);
+    const name = schedule.course.name + ', ' + schedule.hour + 'h' + schedule.minutes;
     this.scheduleService.deleteSchedule(url).subscribe(
       (data) => {
         this.schedules.splice(this.schedules.indexOf(schedule), 1);
+        this.confirmationMsg = 'Schedule deleted: '.concat(name);
       }
-    )
+    );
   }
 
 }

@@ -5,6 +5,8 @@ import { Course } from 'src/app/interfaces/course';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { CourseService } from 'src/app/services/course.service';
 import { ScheduleService } from 'src/app/services/schedule.service';
+import { UtilsService } from 'src/app/services/utils.service';
+import { Weekday } from 'src/app/interfaces/weekday';
 
 @Component({
   selector: 'app-create-schedule',
@@ -16,7 +18,7 @@ export class CreateScheduleComponent implements OnInit {
   createScheduleForm: FormGroup;
   employees: Employee[];
   courses: Course[];
-  days = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+  weekdays: Weekday[];
   hours = [16, 17, 18, 19, 20, 21, 22];
   minutes = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
   levels = ['Débutant 1', 'Débutant 2', 'Débutant 3', 'Intermediaire 1', 'Intermediaire 2'];
@@ -26,6 +28,7 @@ export class CreateScheduleComponent implements OnInit {
     private scheduleService: ScheduleService,
     private employeeService: EmployeeService,
     private courseService: CourseService,
+    private utilsService: UtilsService,
     private formBuilder: FormBuilder
   ) { }
 
@@ -45,11 +48,18 @@ export class CreateScheduleComponent implements OnInit {
     }
     );
 
+    this.utilsService.getWeekdays().subscribe(
+      (data) => {
+        this.weekdays = data;
+        console.log('Days of week: ', this.weekdays);
+      }
+    );
+
     this.createScheduleForm = this.formBuilder.group({
       course: new FormControl(''),
       level: new FormControl(''),
       instructor: new FormControl(''),
-      day: new FormControl(this.days[0]),
+      day: new FormControl(''),
       hour: new FormControl(this.hours[0]),
       minute: new FormControl(this.minutes[0]),
     });
@@ -57,13 +67,15 @@ export class CreateScheduleComponent implements OnInit {
 
   onSubmit() {
     console.log('createScheduleForm: ', this.createScheduleForm.value);
+    this.createScheduleForm.patchValue({course: 'test'});
+    console.log('createScheduleForm: ', this.createScheduleForm.value);
 
 /*     let courseName = this.createScheduleForm.get('course').value;
     let level = this.createScheduleForm.get('level').value;
     let time = this.createScheduleForm.get('hour').value + ':' + this.createScheduleForm.get('minutes').value;
-    let dayTime = this.createScheduleForm.get('day').value +', '+time;*/
-   // this.scheduleService.createSchedule(this.createScheduleForm).subscribe(); 
-   // this.confirmationMsg = 'Nouvelle classe: '+courseName+' - '+dayTime;
-    this.createScheduleForm.reset();
+    let dayTime = this.createScheduleForm.get('day').value +', '+time;
+    this.scheduleService.createSchedule(this.createScheduleForm).subscribe(); 
+    this.confirmationMsg = 'Nouvelle classe: '+courseName+' - '+dayTime;
+    this.createScheduleForm.reset(); */
   }
 }

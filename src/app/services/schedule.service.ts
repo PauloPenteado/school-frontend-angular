@@ -35,4 +35,10 @@ export class ScheduleService {
   createSchedule(formGroup: FormGroup): Observable<Schedule> {
     return this.http.post<Schedule>(this.scheduleUrl, formGroup.value).pipe();
   }
+
+/*   createStudent(formGroup: FormGroup): Observable<Student> {
+    return this.http.post<Student>(this.studentUrl, formGroup.value).pipe(
+      catchError(this.handleError)
+    );
+  } */
 }

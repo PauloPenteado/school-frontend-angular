@@ -67,15 +67,8 @@ export class CreateScheduleComponent implements OnInit {
 
   onSubmit() {
     console.log('createScheduleForm: ', this.createScheduleForm.value);
-    this.createScheduleForm.patchValue({course: 'test'});
-    console.log('createScheduleForm: ', this.createScheduleForm.value);
-
-/*     let courseName = this.createScheduleForm.get('course').value;
-    let level = this.createScheduleForm.get('level').value;
-    let time = this.createScheduleForm.get('hour').value + ':' + this.createScheduleForm.get('minutes').value;
-    let dayTime = this.createScheduleForm.get('day').value +', '+time;
-    this.scheduleService.createSchedule(this.createScheduleForm).subscribe(); 
-    this.confirmationMsg = 'Nouvelle classe: '+courseName+' - '+dayTime;
-    this.createScheduleForm.reset(); */
+    // this.scheduleService.createSchedule(this.createScheduleForm).subscribe();
+    // this.confirmationMsg = 'New schedule added! ';
+    // this.createScheduleForm.reset();
   }
 }

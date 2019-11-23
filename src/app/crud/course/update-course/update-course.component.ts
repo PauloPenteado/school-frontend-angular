@@ -44,7 +44,10 @@ export class UpdateCourseComponent implements OnInit {
   }
 
   onSubmit(){
-    this.courseService.updateCourse(this.course.id, this.updateCourseForm).subscribe();
-    this.confirmationMsg = 'Course updated: '.concat(this.updateCourseForm.get('name').value);
+    this.courseService.updateCourse(this.course.id, this.updateCourseForm).subscribe(
+      (data) => {
+        this.confirmationMsg = 'Course updated: '.concat(this.updateCourseForm.get('name').value);
+      }
+    );
   }
 }

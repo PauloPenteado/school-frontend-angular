@@ -46,9 +46,12 @@ export class UpdateStudentComponent implements OnInit {
 
   onSubmit(){
     let name;
-    this.studentService.updateStudent(this.student.id, this.updateStudentForm).subscribe();
-    name = this.updateStudentForm.get('firstName').value + ' '+this.updateStudentForm.get('lastName').value;
-    this.confirmationMsg = 'Student updated: '.concat(name);
+    this.studentService.updateStudent(this.student.id, this.updateStudentForm).subscribe(
+      (data) => {
+        name = this.updateStudentForm.get('firstName').value + ' '+this.updateStudentForm.get('lastName').value;
+        this.confirmationMsg = 'Student updated: '.concat(name);
+      }
+    );
   }
 
 }

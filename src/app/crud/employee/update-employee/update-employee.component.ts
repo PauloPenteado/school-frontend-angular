@@ -44,9 +44,12 @@ export class UpdateEmployeeComponent implements OnInit {
 
   onSubmit(){
     let name;
-    this.employeeService.updateEmployee(this.employee.id, this.updateEmployeeForm).subscribe();
-    name = this.updateEmployeeForm.get('firstName').value + ' '+this.updateEmployeeForm.get('lastName').value;
-    this.confirmationMsg = 'Team member updated: '.concat(name);
+    this.employeeService.updateEmployee(this.employee.id, this.updateEmployeeForm).subscribe(
+      (data) => {
+        name = this.updateEmployeeForm.get('firstName').value + ' ' + this.updateEmployeeForm.get('lastName').value;
+        this.confirmationMsg = 'Team member updated: '.concat(name);
+      }
+    );
   }
 
 }

@@ -44,10 +44,12 @@ export class CreateStudentComponent implements OnInit {
 
   onSubmit(){
     let name;
-    console.warn('Form Data: ',this.createStudentForm.value);
-    this.studentService.createStudent(this.createStudentForm).subscribe();
-    name = this.createStudentForm.get('firstName').value + ' '+this.createStudentForm.get('lastName').value;
-    this.confirmationMsg = 'New student addded: '.concat(name);
-    this.createStudentForm.reset();
+    this.studentService.createStudent(this.createStudentForm).subscribe(
+      (data) => {
+        name = this.createStudentForm.get('firstName').value + ' '+this.createStudentForm.get('lastName').value;
+        this.confirmationMsg = 'New student addded: '.concat(name);
+        this.createStudentForm.reset();
+      }
+    );
   }
 }

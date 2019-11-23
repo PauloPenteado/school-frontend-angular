@@ -25,10 +25,12 @@ export class CreateCourseComponent implements OnInit {
   }
 
   onSubmit(){
-    console.warn('Form Data: ',this.createCourseForm.value);
-    this.courseService.createCourse(this.createCourseForm).subscribe();
-    this.confirmationMsg = 'New course added: '.concat(this.createCourseForm.get('name').value);
-    this.createCourseForm.reset();
+    this.courseService.createCourse(this.createCourseForm).subscribe(
+      (data) => {
+        this.confirmationMsg = 'New course added: '.concat(this.createCourseForm.get('name').value);
+        this.createCourseForm.reset();
+      }
+    );
   }
 
 }

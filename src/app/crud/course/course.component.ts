@@ -24,7 +24,7 @@ export class CourseComponent implements OnInit {
   }
 
   deleteCourse(url: string, course: Course){
-    let courseName = course.name;
+    const courseName = course.name;
     this.courseService.deleteCourse(url).subscribe(
       (data) => {
         this.courses.splice(this.courses.indexOf(course), 1);

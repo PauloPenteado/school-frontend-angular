@@ -36,10 +36,13 @@ export class CreateEmployeeComponent implements OnInit {
 
   onSubmit(){
     let name;
-    this.employeeService.createEmployee(this.createEmployeeForm).subscribe();
-    name = this.createEmployeeForm.get('firstName').value + ' '+this.createEmployeeForm.get('lastName').value;
-    this.confirmationMsg = 'New team member added: '.concat(name);
-    this.createEmployeeForm.reset();
+    this.employeeService.createEmployee(this.createEmployeeForm).subscribe(
+      (data) => {
+        name = this.createEmployeeForm.get('firstName').value + ' '+this.createEmployeeForm.get('lastName').value;
+        this.confirmationMsg = 'New team member added: '.concat(name);
+        this.createEmployeeForm.reset();
+      }
+    );
   }
 
 }

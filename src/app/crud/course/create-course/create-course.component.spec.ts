@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CreateCourseComponent } from './create-course.component';
+import { CourseService } from 'src/app/services/course.service';
 
 describe('CreateCourseComponent', () => {
   let component: CreateCourseComponent;
@@ -9,7 +10,10 @@ describe('CreateCourseComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateCourseComponent ],
+      declarations: [
+        CreateCourseComponent,
+        CourseService
+      ],
       imports: [
         FormsModule,
         ReactiveFormsModule

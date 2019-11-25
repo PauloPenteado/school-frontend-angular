@@ -11,13 +11,14 @@ describe('UpdateStudentComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        UpdateStudentComponent,
-        StudentService
-      ],
+        UpdateStudentComponent      ],
       imports: [
         FormsModule,
         ReactiveFormsModule,
         RouterModule.forRoot([])
+      ],
+      providers: [
+        StudentService
       ]
     })
     .compileComponents();

@@ -11,12 +11,14 @@ describe('CreateScheduleComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        CreateScheduleComponent,
-        ScheduleService
+        CreateScheduleComponent
       ],
       imports: [
         FormsModule,
         ReactiveFormsModule
+      ],
+      providers: [
+        ScheduleService
       ]
     })
     .compileComponents();

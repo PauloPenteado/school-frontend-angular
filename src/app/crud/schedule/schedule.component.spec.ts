@@ -12,12 +12,14 @@ describe('ScheduleComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         ScheduleComponent,
-        CreateScheduleComponent,
-        ScheduleService
+        CreateScheduleComponent
       ],
       imports: [
         FormsModule,
         ReactiveFormsModule
+      ],
+      providers: [
+        ScheduleService
       ]
     })
     .compileComponents();

@@ -3,6 +3,7 @@ import { CreateScheduleComponent } from '../schedule/create-schedule/create-sche
 import { ScheduleComponent } from './schedule.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ScheduleService } from 'src/app/services/schedule.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ScheduleComponent', () => {
   let component: ScheduleComponent;
@@ -16,7 +17,8 @@ describe('ScheduleComponent', () => {
       ],
       imports: [
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientTestingModule
       ],
       providers: [
         ScheduleService

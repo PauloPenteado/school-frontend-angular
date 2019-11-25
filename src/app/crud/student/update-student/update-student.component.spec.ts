@@ -3,6 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UpdateStudentComponent } from './update-student.component';
 import { StudentService } from 'src/app/services/student.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('UpdateStudentComponent', () => {
   let component: UpdateStudentComponent;
@@ -15,7 +16,8 @@ describe('UpdateStudentComponent', () => {
       imports: [
         FormsModule,
         ReactiveFormsModule,
-        RouterModule.forRoot([])
+        RouterModule.forRoot([]),
+        HttpClientTestingModule
       ],
       providers: [
         StudentService

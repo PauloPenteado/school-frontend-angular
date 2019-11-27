@@ -67,8 +67,11 @@ export class CreateScheduleComponent implements OnInit {
 
   onSubmit() {
     console.log('createScheduleForm: ', this.createScheduleForm.value);
-    // this.scheduleService.createSchedule(this.createScheduleForm).subscribe();
-    // this.confirmationMsg = 'New schedule added! ';
-    // this.createScheduleForm.reset();
+    this.scheduleService.createSchedule(this.createScheduleForm).subscribe(
+      (data) => {
+        this.confirmationMsg = 'New schedule added! ';
+        this.createScheduleForm.reset();
+      }
+    );
   }
 }

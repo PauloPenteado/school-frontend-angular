@@ -9,7 +9,7 @@
                 <label for="inputState">Cours</label>
                 <select id="inputState" class="form-control" formControlName="course">
                     <option [ngValue]="null">Select ...</option>
-                    <option *ngFor="let course of courses"  [ngValue]="course.id">{{course.name}}</option>
+                    <option *ngFor="let course of courses"  [ngValue]="course">{{course.name}}</option>
                 </select>
             </div>
             <div class="form-group col-md-3">
@@ -23,7 +23,7 @@
                 <label for="instructors">Professeur</label>
                 <select id="instructors" class="form-control" formControlName="instructor">
                     <option [ngValue]="null">Select ...</option>
-                    <option *ngFor="let instructor of employees"  [ngValue]="instructor.id">{{instructor.firstName}} {{instructor.lastName}}</option>
+                    <option *ngFor="let instructor of employees"  [ngValue]="instructor">{{instructor.firstName}} {{instructor.lastName}}</option>
                 </select>
             </div>
             <div class="form-group col-md-2">

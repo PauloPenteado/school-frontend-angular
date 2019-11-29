@@ -61,7 +61,7 @@ export class CreateScheduleComponent implements OnInit {
       instructor: new FormControl(''),
       day: new FormControl(''),
       hour: new FormControl(this.hours[0]),
-      minute: new FormControl(this.minutes[0]),
+      minutes: new FormControl(this.minutes[0]),
     });
   }
 
